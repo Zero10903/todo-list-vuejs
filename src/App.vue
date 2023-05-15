@@ -36,5 +36,6 @@ import Footer from './components/Footer.vue';
 </template>
 
 <style lang="scss">
+@import './assets/sass/01-settings/settings';
 @import './assets/sass/03-generic/reset';
 </style>
