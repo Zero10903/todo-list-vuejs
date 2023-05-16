@@ -1,18 +1,46 @@
-<script setup></script>
+<script setup>
+import { ref, computed } from 'vue';
+const countMenu = ref(false);
+
+const toggleMenu = () => {
+	countMenu.value = !countMenu.value;
+};
+
+const openBtnClass = computed(() => ({
+	'': countMenu.value == false,
+	'menu__btn--hide': countMenu.value == true,
+}));
+const closeBtnClass = computed(() => ({
+	'menu__btn--hide': countMenu.value == false,
+	'': countMenu.value == true,
+}));
+const toggleMenuClass = computed(() => ({
+	'menu__navbar--hide': countMenu.value == false,
+	'': countMenu.value == true,
+}));
+</script>
 
 <template>
 	<header class="menu">
 		<section class="menu__controls">
 			<a class="menu__logo" href="#">To Do List</a>
 
-			<button class="menu__btn menu__btn--open">
+			<button
+				class="menu__btn menu__btn--open"
+				:class="openBtnClass"
+				@click="toggleMenu()"
+			>
 				<i class="menu__icon bx bx-menu-alt-right"></i>
 			</button>
-			<button class="menu__btn menu__btn--close menu__btn--hide">
+			<button
+				class="menu__btn menu__btn--close"
+				:class="closeBtnClass"
+				@click="toggleMenu()"
+			>
 				<i class="menu__icon bx bx-x"></i>
 			</button>
 		</section>
-		<nav class="menu__navbar menu__navbar--hide">
+		<nav class="menu__navbar" :class="toggleMenuClass">
 			<a href="#" class="menu__link">¿Cómo usar?</a>
 			<a href="#" class="menu__link">Crear tarea</a>
 		</nav>
@@ -55,7 +83,9 @@
 
 	&__navbar {
 		background-color: green;
+		max-height: 10em;
 		padding: 1em 0em;
+		overflow: hidden;
 		@include layout.flex(column, nowrap, space-around, center, 0.5em);
 
 		transition: $transition-time all ease-out;
@@ -63,7 +93,6 @@
 		&--hide {
 			max-height: 0em;
 			padding: 0em 0em;
-			overflow: hidden;
 		}
 	}
 }
