@@ -56,6 +56,7 @@ const menuClass = computed(() => ({
 	padding: 1em 0.5em;
 	position: sticky;
 	top: 0.5em;
+	z-index: 999;
 
 	border: $box-border;
 	border-radius: $box-radius;
