@@ -77,6 +77,7 @@ const removeTask = (taskId) => {
 		@include layout.flex(row, nowrap, space-between, center);
 	}
 	&__input {
+		width: 85%;
 		padding: 0.3em 1em;
 		border-bottom: 2px solid black;
 		outline: none;
