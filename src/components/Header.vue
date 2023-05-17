@@ -14,7 +14,7 @@ const closeBtnClass = computed(() => ({
 	'menu__btn--hide': countMenu.value == false,
 	'': countMenu.value == true,
 }));
-const toggleMenuClass = computed(() => ({
+const menuClass = computed(() => ({
 	'menu__navbar--hide': countMenu.value == false,
 	'': countMenu.value == true,
 }));
@@ -40,7 +40,7 @@ const toggleMenuClass = computed(() => ({
 				<i class="menu__icon bx bx-x"></i>
 			</button>
 		</section>
-		<nav class="menu__navbar" :class="toggleMenuClass">
+		<nav class="menu__navbar" :class="menuClass">
 			<a href="#" class="menu__link">¿Cómo usar?</a>
 			<a href="#" class="menu__link">Crear tarea</a>
 		</nav>
@@ -49,13 +49,18 @@ const toggleMenuClass = computed(() => ({
 
 <style lang="scss" scoped>
 @use '../assets/sass/02-tools/layout';
+@use '../assets/sass/02-tools/effect';
 @import '../assets/sass/01-settings/settings';
 .menu {
+	margin: 0.5em 0.5em auto 0.5em;
 	padding: 1em 0.5em;
 	position: sticky;
-	top: 0em;
+	top: 0.5em;
 
-	background-color: blueviolet;
+	border: $box-border;
+	border-radius: $box-radius;
+
+	@include effect.glass($box-blur);
 
 	&__controls {
 		display: grid;
@@ -82,9 +87,8 @@ const toggleMenuClass = computed(() => ({
 	}
 
 	&__navbar {
-		background-color: green;
 		max-height: 10em;
-		padding: 1em 0em;
+		padding: 2em 0em 1em;
 		overflow: hidden;
 		@include layout.flex(column, nowrap, space-around, center, 0.5em);
 
