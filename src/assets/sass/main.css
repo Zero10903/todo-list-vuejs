@@ -156,4 +156,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  background: url("../images/background-mobile.png") center/cover no-repeat;
+}
+
+@media (min-width: 1024px) {
+  body {
+    background: url("../images/background.png") center/cover no-repeat;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */

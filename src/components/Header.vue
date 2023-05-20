@@ -104,15 +104,12 @@ const menuClass = computed(() => ({
 @media (min-width: 1024px) {
 	.menu {
 		padding-inline: 2em;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
+		@include layout.flex(row, nowrap, space-between, center);
 		&__btn {
 			display: none;
 		}
 		&__navbar {
 			max-height: fit-content;
-			// flex: 1;
 			@include layout.flex(row, nowrap, space-around, center, 1em);
 		}
 	}

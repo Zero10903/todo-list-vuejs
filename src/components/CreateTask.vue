@@ -82,6 +82,7 @@ watch(
 @use '../assets/sass/02-tools/effect';
 @import '../assets/sass/01-settings/settings';
 .tasks {
+	height: 65vh;
 	margin: 1em 0.5em;
 	border: $box-border;
 	border-radius: $box-radius;
@@ -95,6 +96,7 @@ watch(
 	&__create {
 		padding: 1em;
 		border-top: $box-border;
+		border-bottom: $box-border;
 		@include layout.flex(row, nowrap, space-between, center);
 	}
 	&__input {
@@ -102,6 +104,10 @@ watch(
 		padding: 0.3em 1em;
 		border-bottom: 2px solid black;
 		outline: none;
+
+		&::placeholder {
+			color: black;
+		}
 	}
 	&__btn {
 		@include layout.square(1.3em);
@@ -109,14 +115,34 @@ watch(
 	&__icon {
 		font-size: 1.3em;
 	}
+	&__list {
+		max-height: 44vh;
+
+		overflow-y: auto;
+		&::-webkit-scrollbar {
+			width: 5px;
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: $color-principal;
+		}
+		&::-moz-scrollbar {
+			width: thin;
+		}
+		&::-moz-scrollbar-thumb {
+			scrollbar-color: $color-principal;
+		}
+	}
 }
 .task {
 	padding: 1em 0.5em;
-	border-top: $box-border;
+	accent-color: $color-secundario;
+	&:not(:first-child) {
+		border-top: $box-border;
+	}
 	@include layout.flex(row, nowrap, space-between, center);
 
 	&--completed {
-		background-color: rgba(172, 255, 47, 0.1);
+		background-color: $color-principal-transparente;
 	}
 
 	&__title--completed {

@@ -1,3 +1,10 @@
+@use 'sass:color';
+// ===== COLOR
+$color-principal: #6a5acd;
+$color-principal-transparente: color.adjust($color-principal, $alpha: -0.4);
+$color-secundario: color.adjust($color-principal, $lightness: -30%);
+
+// ===== TRANSITION
 $transition-time: 0.3s;
 
 // ===== BOXES
