@@ -6,13 +6,40 @@ import Footer from './components/Footer.vue';
 </script>
 
 <template>
-	<Header />
-	<CreateTask />
-	<HowToUse />
-	<Footer />
+	<div class="main">
+		<Header />
+		<CreateTask />
+		<aside class="aside">
+			<HowToUse />
+			<Footer />
+		</aside>
+	</div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import './assets/sass/01-settings/settings';
 @import './assets/sass/03-generic/reset';
+
+@media (min-width: 1024px) {
+	.main {
+		margin-inline: 2em;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-areas:
+			'header header header'
+			'aside create-task create-task'
+			'aside create-task create-task'
+			'aside create-task create-task';
+		gap: 20px;
+	}
+	.menu {
+		grid-area: header;
+	}
+	.aside {
+		grid-area: aside;
+	}
+	.tasks {
+		grid-area: create-task;
+	}
+}
 </style>

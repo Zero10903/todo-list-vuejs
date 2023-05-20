@@ -22,7 +22,7 @@ const menuClass = computed(() => ({
 
 <template>
 	<header class="menu">
-		<section class="menu__controls">
+		<section class="menu__controls menu__controls--wide">
 			<a class="menu__logo" href="#">To Do List</a>
 
 			<button
@@ -41,8 +41,8 @@ const menuClass = computed(() => ({
 			</button>
 		</section>
 		<nav class="menu__navbar" :class="menuClass">
-			<a href="#" class="menu__link">¿Cómo usar?</a>
 			<a href="#" class="menu__link">Crear tarea</a>
+			<a href="#" class="menu__link">¿Cómo usar?</a>
 		</nav>
 	</header>
 </template>
@@ -98,6 +98,22 @@ const menuClass = computed(() => ({
 		&--hide {
 			max-height: 0em;
 			padding: 0em 0em;
+		}
+	}
+}
+@media (min-width: 1024px) {
+	.menu {
+		padding-inline: 2em;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		&__btn {
+			display: none;
+		}
+		&__navbar {
+			max-height: fit-content;
+			// flex: 1;
+			@include layout.flex(row, nowrap, space-around, center, 1em);
 		}
 	}
 }

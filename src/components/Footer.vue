@@ -32,4 +32,9 @@
 		text-align: center;
 	}
 }
+@media (min-width: 1024px) {
+	.footer {
+		height: fit-content;
+	}
+}
 </style>

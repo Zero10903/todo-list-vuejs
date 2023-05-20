@@ -39,4 +39,9 @@
 		list-style-position: inside;
 	}
 }
+@media (min-width: 1024px) {
+	.how {
+		height: fit-content;
+	}
+}
 </style>
