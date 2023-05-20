@@ -1,17 +1,28 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 
 const tasks = ref([]);
 const newTask = ref('');
+
+const saveTasks = () => {
+	localStorage.setItem('tasks', JSON.stringify(tasks.value));
+};
+const loadTasks = () => {
+	const savedTasks = localStorage.getItem('tasks');
+	if (savedTasks) {
+		tasks.value = JSON.parse(savedTasks);
+	}
+};
 
 const addTask = () => {
 	if (newTask.value) {
 		const task = {
 			id: tasks.value.length + 1,
 			title: newTask.value,
+			state: false,
 		};
 		tasks.value.push(task);
-		newTask.value = '';
+		saveTasks(), (newTask.value = '');
 	}
 };
 const removeTask = (taskId) => {
@@ -20,6 +31,16 @@ const removeTask = (taskId) => {
 		tasks.value.splice(index, 1);
 	}
 };
+
+onMounted(loadTasks);
+
+watch(
+	tasks,
+	() => {
+		saveTasks();
+	},
+	{ deep: true }
+);
 </script>
 <template>
 	<section class="tasks">
