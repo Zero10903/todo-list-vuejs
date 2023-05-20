@@ -1,7 +1,7 @@
 <script setup></script>
 <template>
 	<section class="how">
-		<h2>Cómo usar:</h2>
+		<h2 class="how__title">Cómo usar:</h2>
 		<ul class="how__list">
 			<li class="how__item">Escriba su tarea en el input.</li>
 			<li class="how__item">
@@ -21,12 +21,17 @@
 @use '../assets/sass/02-tools/effect';
 @import '../assets/sass/01-settings/settings';
 .how {
-	margin: 0em 0.5em;
+	margin: 0.5em;
 	padding: 1em 0.5em;
 	border: $box-border;
 	border-radius: $box-radius;
 	@include effect.glass($box-blur);
 
+	&__title {
+		padding: 0.5em 0em 1em;
+		font-size: 1.5em;
+		text-align: center;
+	}
 	&__item {
 		padding: 0.5em;
 		border-top: $box-border;
