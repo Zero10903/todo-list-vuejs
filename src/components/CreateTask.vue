@@ -1,12 +1,16 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue';
 
+// Variable que almacena la lista de tareas
 const tasks = ref([]);
+// Variable que almacena una nueva tarea
 const newTask = ref('');
 
+// Función que guarda la lista en el localStorage
 const saveTasks = () => {
 	localStorage.setItem('tasks', JSON.stringify(tasks.value));
 };
+// Función que carga en la web la lista de tareas, obteniendola del localStorage
 const loadTasks = () => {
 	const savedTasks = localStorage.getItem('tasks');
 	if (savedTasks) {
@@ -14,26 +18,30 @@ const loadTasks = () => {
 	}
 };
 
+// Función que añade una nueva tarea a la lista
 const addTask = () => {
 	if (newTask.value) {
 		const task = {
 			id: tasks.value.length + 1,
 			title: newTask.value,
-			state: false,
+			state: false, // Define si la tarea fue completada o no (estña enlazada con el checkbox con un v-model)
 		};
-		tasks.value.push(task);
-		saveTasks(), (newTask.value = '');
+		tasks.value.push(task); //Actualizamos la lista de tareas
+		saveTasks(); //Subimos la lista al localStorage
+		newTask.value = ''; //Vaciamos la variable que contenia la nueva tarea para poder reusarla
 	}
 };
+// Función que remueve una tarea de la lista
 const removeTask = (taskId) => {
 	const index = tasks.value.findIndex((task) => task.id === taskId);
 	if (index !== -1) {
 		tasks.value.splice(index, 1);
 	}
 };
-
+// Carga la lista obtenida del localStorage en la web al montarla
 onMounted(loadTasks);
 
+// Función que vigila los cambios en la lista de tareas y la sube automaticamente al localStorage
 watch(
 	tasks,
 	() => {
@@ -45,6 +53,7 @@ watch(
 <template>
 	<section class="tasks">
 		<h2 class="tasks__title">Tareas</h2>
+		<!-- Sección para crear nuevas tareas -->
 		<form class="tasks__create" @submit.prevent="addTask">
 			<input
 				class="tasks__input"
@@ -56,6 +65,7 @@ watch(
 				<i class="tasks__icon bx bx-plus"></i>
 			</button>
 		</form>
+		<!-- Sección para mostrar las tareas existentes -->
 		<ul class="tasks__list">
 			<li
 				class="task"
@@ -78,8 +88,11 @@ watch(
 </template>
 
 <style lang="scss" scoped>
+// Mixins que aceleran el proceso de estilizado
 @use '../assets/sass/02-tools/layout';
+// Mixins que crean efectos rapidamente
 @use '../assets/sass/02-tools/effect';
+// Variables de sass
 @import '../assets/sass/01-settings/settings';
 .tasks {
 	height: 65vh;

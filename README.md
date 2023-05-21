@@ -1,29 +1,28 @@
-# 02-vue
+<div align="center">
+    <h1>ToDo List App</h1>
+    <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=872&q=80" alt="to do list image" width="100%"/>
+</div>
 
-This template should help get you started developing with Vue 3 in Vite.
+## ¿De qué se trata?
 
-## Recommended IDE Setup
+Esta es una simple aplicación de "Lista de tareas" o "Lista de cosas por hacer" en la que podrás agregar las tareas que necesites. Este proyecto utiliza CRUD y localStorage, por lo que podrás realizar operaciones básicas como crear, leer, modificar y borrar las tareas que crees, y estos cambios serán guardados en el localStorage. Con esto, tendrás acceso a las mismas aún si cierras el navegador (esto siempre desde el mismo dispositivo).
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### Tecnologías usadas
 
-## Customize configuration
+- Vue.js
+- Sass
+- localStorage (funcionalidad de JavaScript)
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+### Demo
 
-## Project Setup
+Aquí podrás encontrar una [Demo]() del proyecto.
 
-```sh
-npm install
-```
+## ¿Cómo puedo aportar a este proyecto?
 
-### Compile and Hot-Reload for Development
+- Clona el repositorio en tu PC
+- Haz los cambios que creas convenientes y añade documentación a los mismos.
+- Crea un Pull Request.
 
-```sh
-npm run dev
-```
+## Licencia
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+_The MIT License_

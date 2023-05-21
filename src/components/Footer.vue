@@ -13,8 +13,11 @@
 </template>
 
 <style lang="scss" scoped>
-@use '../assets/sass/02-tools/effect';
+// Mixins que aceleran el proceso de estilizado
 @use '../assets/sass/02-tools/layout';
+// Mixins que crean efectos rapidamente
+@use '../assets/sass/02-tools/effect';
+// Variables de sass
 @import '../assets/sass/01-settings/settings';
 .footer {
 	margin: 0.5em;

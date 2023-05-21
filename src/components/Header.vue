@@ -1,19 +1,25 @@
 <script setup>
 import { ref, computed } from 'vue';
+
+// Variable booleana - Define si el menu esta abierto o no
 const countMenu = ref(false);
 
+// Funcion para actualizar la variable anterior
 const toggleMenu = () => {
 	countMenu.value = !countMenu.value;
 };
 
+// Propiedad computada que define si el boton Burguer del menu se muestra o no
 const openBtnClass = computed(() => ({
 	'': countMenu.value == false,
 	'menu__btn--hide': countMenu.value == true,
 }));
+// Propiedad computada que define si el boton X del menu se muestra o no
 const closeBtnClass = computed(() => ({
 	'menu__btn--hide': countMenu.value == false,
 	'': countMenu.value == true,
 }));
+// Propiedad computada que define si el menu se muestra o no
 const menuClass = computed(() => ({
 	'menu__navbar--hide': countMenu.value == false,
 	'': countMenu.value == true,
@@ -48,8 +54,11 @@ const menuClass = computed(() => ({
 </template>
 
 <style lang="scss" scoped>
+// Mixins que aceleran el proceso de estilizado
 @use '../assets/sass/02-tools/layout';
+// Mixins que crean efectos rapidamente
 @use '../assets/sass/02-tools/effect';
+// Variables de sass
 @import '../assets/sass/01-settings/settings';
 .menu {
 	margin: 0.5em 0.5em auto 0.5em;

@@ -18,7 +18,9 @@
 	</section>
 </template>
 <style lang="scss" scoped>
+// Mixins que crean efectos rapidamente
 @use '../assets/sass/02-tools/effect';
+// Variables de sass
 @import '../assets/sass/01-settings/settings';
 .how {
 	margin: 0.5em;

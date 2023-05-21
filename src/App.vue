@@ -1,4 +1,5 @@
 <script setup>
+// Importación de componentes
 import Header from './components/Header.vue';
 import CreateTask from './components/CreateTask.vue';
 import HowToUse from './components/HowToUse.vue';
@@ -21,6 +22,7 @@ import Footer from './components/Footer.vue';
 @import './assets/sass/03-generic/reset';
 
 @media (min-width: 1024px) {
+	// Layout Grid para Desktop version
 	.main {
 		margin-inline: 2em;
 		display: grid;
