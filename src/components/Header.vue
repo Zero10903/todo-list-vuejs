@@ -2,27 +2,27 @@
 import { ref, computed } from 'vue';
 
 // Variable booleana - Define si el menu esta abierto o no
-const countMenu = ref(false);
+const isMenuOpen = ref(false);
 
 // Funcion para actualizar la variable anterior
 const toggleMenu = () => {
-	countMenu.value = !countMenu.value;
+	isMenuOpen.value = !isMenuOpen.value;
 };
 
 // Propiedad computada que define si el boton Burguer del menu se muestra o no
 const openBtnClass = computed(() => ({
-	'': countMenu.value == false,
-	'menu__btn--hide': countMenu.value == true,
+	'': isMenuOpen.value == false,
+	'menu__btn--hide': isMenuOpen.value == true,
 }));
 // Propiedad computada que define si el boton X del menu se muestra o no
 const closeBtnClass = computed(() => ({
-	'menu__btn--hide': countMenu.value == false,
-	'': countMenu.value == true,
+	'menu__btn--hide': isMenuOpen.value == false,
+	'': isMenuOpen.value == true,
 }));
 // Propiedad computada que define si el menu se muestra o no
 const menuClass = computed(() => ({
-	'menu__navbar--hide': countMenu.value == false,
-	'': countMenu.value == true,
+	'menu__navbar--hide': isMenuOpen.value == false,
+	'': isMenuOpen.value == true,
 }));
 </script>
 
