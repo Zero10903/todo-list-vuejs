@@ -24,7 +24,7 @@ const addTask = () => {
 		const task = {
 			id: tasks.value.length + 1,
 			title: newTask.value,
-			state: false, // Define si la tarea fue completada o no (estña enlazada con el checkbox con un v-model)
+			state: false, // Define si la tarea fue completada o no (está enlazada con el checkbox con un v-model)
 		};
 		tasks.value.push(task); //Actualizamos la lista de tareas
 		saveTasks(); //Subimos la lista al localStorage
