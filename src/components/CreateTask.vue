@@ -97,8 +97,8 @@ watch(
 .tasks {
 	height: 65vh;
 	margin: 1em 0.5em;
-	border: $box-border;
 	border-radius: $box-radius;
+	box-shadow: $box-shadow;
 	@include effect.glass($box-blur);
 
 	&__title {
@@ -153,6 +153,8 @@ watch(
 		border-top: $box-border;
 	}
 	@include layout.flex(row, nowrap, space-between, center);
+
+	transition: 0.1s background-color ease-in-out;
 
 	&--completed {
 		background-color: $color-principal-transparente;

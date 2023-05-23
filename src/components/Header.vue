@@ -67,8 +67,9 @@ const menuClass = computed(() => ({
 	top: 0.5em;
 	z-index: 999;
 
-	border: $box-border;
 	border-radius: $box-radius;
+
+	box-shadow: $box-shadow;
 
 	@include effect.glass($box-blur);
 

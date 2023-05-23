@@ -25,8 +25,10 @@
 .how {
 	margin: 0.5em;
 	padding: 1em 0.5em;
-	border: $box-border;
 	border-radius: $box-radius;
+
+	box-shadow: $box-shadow;
+
 	@include effect.glass($box-blur);
 
 	&__title {

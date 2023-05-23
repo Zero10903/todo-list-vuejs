@@ -41,6 +41,8 @@ import Footer from './components/Footer.vue';
 		grid-area: aside;
 	}
 	.tasks {
+		height: 100%;
+		margin: 0;
 		grid-area: create-task;
 	}
 }
